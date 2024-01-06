@@ -4,26 +4,6 @@ public class Day6 {
 public static void main(String[] args) {
 
     
-    
-    //char[][] aux = zigzagConversion("PAYPALISHIRING", 4);
-    
-    System.out.println(zigzagConversion("PAYPALISHIRING", 4)+"\nPINALSIGYAHRPI");
-    //System.out.println(Arrays.toString(aux[0]));
-    
-   // System.out.println(aux[0][3]);
-//    System.out.println(aux[3][0]);
-    
-//    for(int i = 0;i < aux.length;i++){
-//        for(int j = 0;j < aux[0].length;j++){
-//            if(aux[i][j] - 'O' == -79){
-//                System.out.println(aux[i][j]);
-//            }
-//            else{
-//                System.out.print(aux[i][j]);
-//            }
-//        }
-//          
-//    }
 }
     public static String zigzagConversion(String s, int rows){
         char[][] zigzag = new char[rows][s.length()];
