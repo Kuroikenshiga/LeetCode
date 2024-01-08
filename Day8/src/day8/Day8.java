@@ -10,11 +10,24 @@ public static void main(String[] args) {
         int floatPointIndex = 1,amountFloatPoint = 0,valueConverted = 0,nextPosition = 0;
         
         for(int i = s.length() - 1; i > -1;i--){
+            String aux = "";
+            aux += s.charAt(i);
+            if(aux.matches("[0-9]")){
+                
+            
             stringToConvert.add(0, s.charAt(i));
+           
             if(floatPointIndex%3 == 0 && i != 0){
-                stringToConvert.add(0, '.');
+                aux = ""; 
+                aux += s.charAt(i - 1);
+                if(aux.matches("[0-9]")){
+                     stringToConvert.add(0, '.');
+                 }
+                
             }
             floatPointIndex++;
+            }
+            aux = "";
         }
         stringToConvert.addLast('.');
         for(char i:stringToConvert){
@@ -24,7 +37,7 @@ public static void main(String[] args) {
         }
         amountFloatPoint--;
         if(stringToConvert.size() < 4){
-            return stringToConvert.size() == 3?(convertUnitValue(stringToConvert.get(0))*10)+convertUnitValue(stringToConvert.get(1)):convertUnitValue(stringToConvert.get(0));
+            return (stringToConvert.size() == 3?(convertUnitValue(stringToConvert.get(0))*10)+convertUnitValue(stringToConvert.get(1)):convertUnitValue(stringToConvert.get(0)))*(isPositive?1:-1);
         }
         for(int i = 0;i < stringToConvert.size();i+=nextPosition){
             int value = 0;
@@ -49,7 +62,7 @@ public static void main(String[] args) {
             amountFloatPoint--;
         }
         
-        return valueConverted;
+        return valueConverted*(isPositive?1:-1);
     }
     
     private static int convertUnitValue(char c){
